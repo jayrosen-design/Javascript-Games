@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+
+<!--
+   COP2822 0M1
+   Module 3
+   Chapter 3 Madame Vadoma roll Telling
+
+   Author: Jay Rosen
+   Date: 01/28/2015
+
+   File name: gregs_roll.html
+   Supporting files: greg.css, aboutyou.html, index.html, sign.html, contact.html, greg.html, play_games.html
+   Supporting files: images/superhero.jpg, images/madame.jpg
+-->
+
+<title>Greg's Gambits | Dice game</title>
+<link href="greg.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+
+var counter = 0;
+var playerPts = 0;
+var cpuPts = 0;
+var playerWinner = false;
+var cpuWinner = false;
+var GameOver = 50;
+
+function reset()
+{
+		window.location.reload();
+
+}
+
+
+
+function rollDice()
+{
+ 	var die1 = 0;
+ 	var die2 = 0;
+ 	var die3 = 0;
+ 	var die4 = 0;
+
+ 	var player1 = 0;
+ 	var player2 = 0;
+ 	var cpu1 = 0;
+ 	var cpu2 = 0;
+
+ 	var playerDubs = 0;
+	var cpuDubs = 0;
+
+ 	var playerDice = 0;
+ 	var cpuDice = 0;
+
+	var roll1 = ("<img src = 'images/Die1.png' />");
+	var roll2 = ("<img src = 'images/Die2.png' />");
+	var roll3 = ("<img src = 'images/Die3.png' />");
+	var roll4 = ("<img src = 'images/Die4.png' />");
+	var roll5 = ("<img src = 'images/Die5.png' />");
+	var roll6 = ("<img src = 'images/Die6.png' />");
+
+	var CPUroll1 = ("<img src = 'images/Die1_.png' />");
+	var CPUroll2 = ("<img src = 'images/Die2_.png' />");
+	var CPUroll3 = ("<img src = 'images/Die3_.png' />");
+	var CPUroll4 = ("<img src = 'images/Die4_.png' />");
+	var CPUroll5 = ("<img src = 'images/Die5_.png' />");
+	var CPUroll6 = ("<img src = 'images/Die6_.png' />");
+
+
+
+	die1 = (Math.floor(Math.random() * 6)) + 1;
+	switch(die1)
+	{
+	case 1:
+			document.getElementById("die1").innerHTML = roll1;
+			player1 = 1;
+			break;
+	case 2:
+			document.getElementById("die1").innerHTML = roll2;
+			player1 = 2;
+			break;
+	case 3:
+			document.getElementById("die1").innerHTML = roll3;
+			player1 = 3;
+			break;
+	case 4:
+			document.getElementById("die1").innerHTML = roll4;
+			player1 = 4;
+			break;
+	case 5:
+			document.getElementById("die1").innerHTML = roll5;
+			player1 = 5;
+			break;
+	case 6:
+			document.getElementById("die1").innerHTML = roll6;
+			player1 = 6;
+			break;
+	}
+
+
+	die2 = (Math.floor(Math.random() * 6)) + 1;
+	switch(die2)
+	{
+	case 1:
+			document.getElementById("die2").innerHTML = roll1;
+			player2 = 1;
+			break;
+	case 2:
+			document.getElementById("die2").innerHTML = roll2;
+			player2 = 2;
+			break;
+	case 3:
+			document.getElementById("die2").innerHTML = roll3;
+			player2 = 3;
+			break;
+	case 4:
+			document.getElementById("die2").innerHTML = roll4;
+			player2 = 4;
+			break;
+	case 5:
+			document.getElementById("die2").innerHTML = roll5;
+			player2 = 5;
+			break;
+	case 6:
+			document.getElementById("die2").innerHTML = roll6;
+			player2 = 6;
+			break;
+	}
+
+
+die3 = (Math.floor(Math.random() * 6)) + 1;
+	switch(die3)
+	{
+	case 1:
+			document.getElementById("die3").innerHTML = CPUroll1;
+			cpu1 = 1;
+			break;
+	case 2:
+			document.getElementById("die3").innerHTML = CPUroll2;
+			cpu1 = 2;
+			break;
+	case 3:
+			document.getElementById("die3").innerHTML = CPUroll3;
+			cpu1 = 3;
+			break;
+	case 4:
+			document.getElementById("die3").innerHTML = CPUroll4;
+			cpu1 =4;
+			break;
+	case 5:
+			document.getElementById("die3").innerHTML = CPUroll5;
+			cpu1 = 5;
+			break;
+	case 6:
+			document.getElementById("die3").innerHTML = CPUroll6;
+			cpu1 = 6;
+			break;
+	}
+
+
+	die4 = (Math.floor(Math.random() * 6)) + 1;
+	switch(die4)
+	{
+	case 1:
+			document.getElementById("die4").innerHTML = CPUroll1;
+			cpu2 = 1;
+			break;
+	case 2:
+			document.getElementById("die4").innerHTML = CPUroll2;
+			cpu2 = 2;
+			break;
+	case 3:
+			document.getElementById("die4").innerHTML = CPUroll3;
+			cpu2 = 3;
+			break;
+	case 4:
+			document.getElementById("die4").innerHTML = CPUroll4;
+			cpu2 = 4;
+			break;
+	case 5:
+			document.getElementById("die4").innerHTML = CPUroll5;
+			cpu2 = 5;
+			break;
+	case 6:
+			document.getElementById("die4").innerHTML = CPUroll6;
+			cpu2 = 6;
+			break;
+	}
+
+
+count();
+
+
+playerDice = (player1 + player2)
+	document.getElementById("playerDice").innerHTML = (playerDice);
+
+cpuDice = (cpu1 + cpu2)
+	document.getElementById("cpuDice").innerHTML = (cpuDice);
+
+
+	if (player1 = player2)
+	{
+		playerDubs = (playerDice + playerDice);
+		playerDubs = playerDice;
+	}
+
+	if (cpu1 = cpu2)
+	{
+		cpuDubs = (cpuDice + cpuDice);
+		cpuDubs = cpuDice;
+	}
+
+
+winner(playerDice, cpuDice);
+
+
+}
+
+
+function count()
+{
+	counter = counter + 1;
+
+}
+
+
+function winner(playerDice, cpuDice)
+{
+
+	if (playerDice > cpuDice)
+	{
+
+		playerPts = playerPts + playerDice;
+		document.getElementById("Winner").innerHTML = ("<h2>You won round " + counter + "</h2>");
+		document.getElementById("playerPts").innerHTML = (playerPts);
+	}
+
+	if (cpuDice > playerDice)
+	{
+
+		cpuPts = cpuPts + cpuDice;
+		document.getElementById("Winner").innerHTML = ("<h2>Computer won round " + counter + "</h2>");
+		document.getElementById("cpuPts").innerHTML = (cpuPts);
+	}
+	
+	
+	if (playerDice == cpuDice)
+	{
+		document.getElementById("Winner").innerHTML = ("<h2>Round " + counter + " is a Tie.</h2>");
+
+	}
+
+
+	if (playerPts == GameOver)
+			{	
+				document.getElementById("GameOver").innerHTML = ("<h2>You won the game of Dice!!!<br> <br> :-) </h1>");
+			}
+
+	if (playerPts > GameOver)
+			{	
+				document.getElementById("GameOver").innerHTML = ("<h2>You won the game of Dice!!!<br> <br> :-) </h1>");
+			}
+
+
+	if (cpuPts == GameOver || cpuPts > GameOver)
+			{
+				document.getElementById("GameOver").innerHTML = ("<h2>You lost to the Computer at Dice!!!<br> <br> :-( </h1>");
+			}
+
+	if (cpuPts > GameOver)
+			{
+				document.getElementById("GameOver").innerHTML = ("<h2>You lost to the Computer at Dice!!!<br> <br> :-( </h1>");
+			}
+
+}
+
+
+
+
+
+</script>
+</head>
+<body>
+    <div id="container">
+        <img src="images/superhero.jpg" class="floatleft" />
+        <h1 id="logo"><em>Roll the Dice</em></h1>
+        <h2 align="center">Play a game of Dice</h2>
+        <div id="nav">
+            <p><a href="index.html">Home</a>
+            <a href="default.html">About Greg</a>
+            <a href="play_games.html">Play a Game</a>
+            <a href="signin.html">Sign In</a>
+            <a href="default.html">Contact Us</a></p>
+        </div>
+        <div id="content">
+            
+            	<table style="text-align: center; magin: 0 auto; border: none;">
+            	
+            	<!-- Buttons -->
+            	<tr>
+            		<td style ="border: none;"> <input type="button" value="Roll Dice" onclick="rollDice();" /> </td>
+            		<td style ="border: none;"></td>
+            		<td style ="border: none;"> <input type="reset" value="Reset Game"  onclick="reset()" /> </td>
+            	</tr>
+
+            	<tr>
+            		<td style="padding: 20px; border: none;">  </td>
+            		<td style ="border: none;">  </td>
+            		<td style ="border: none;">  </td>
+
+            	</tr>
+
+
+            	<tr>
+		        	
+		        	<td id="Winner" colspan="3"> You vs Computer </td>
+
+		        </tr>
+		        <tr>
+		        	<td id="GameOver" colspan="3"> </td>
+
+		        </tr>
+
+		        <tr>
+		        	<td> Your </td>
+		        	<td> Points </td>
+		        	<td id="playerPts"> 0 </td>
+		        </tr>
+
+		           <tr>
+		        	<td> Computer's </td>
+		        	<td> Points </td>
+		        	<td id="cpuPts"> 0 </td>
+		        </tr>
+
+		        <tr>
+            		<td style="padding: 20px; border: none;">  </td>
+            		<td style ="border: none;">  </td>
+            		<td style ="border: none;">  </td>
+
+            	</tr>
+
+            	<!-- Player's dice -->
+            	<tr>
+		            <td id="die1" style="margin: 20px 20px 20px 20px; border: none; ">
+		                <img src="images/Die1.png" />
+		            </td>
+
+		            <td style = "margin: 20px 20px 20px 20px; border: none;"> </td>
+
+					<td id="die2" style="margin: 20px 20px 20px 20px; border: none; ">
+		                <img src="images/Die1.png" />
+		            </td>
+		        </tr>
+				<tr>
+            		<td style="padding: 20px; border: none;">  </td>
+            		<td style ="border: none;">  </td>
+            		<td style ="border: none;" >  </td>
+
+            	</tr>
+
+		        <tr>
+		        	<td> Player </td>
+		        	<td> rolled </td>
+		        	<td id="playerDice"> 0 </td>
+		        </tr>
+
+
+
+				<tr>
+            		<td style="padding: 20px; border: none;">  </td>
+            		<td style ="border: none;">  </td>
+            		<td style ="border: none;" >  </td>
+
+            	</tr>
+
+
+		        <!-- Computer Player's dice -->
+				<tr>
+		            <td id="die3" style="margin: 20px 20px 20px 20px; border: none; ">
+		                <img src="images/Die1_.png" />
+		            </td>
+
+		            <td style = "margin: 20px 20px 20px 20px; border: none;"> </td>
+
+					<td id="die4" style="margin: 20px 20px 20px 20px; border: none; ">
+		                <img src="images/Die1_.png" />
+		            </td>
+		        </tr>
+				<tr>
+            		<td style="padding: 20px; border: none;">  </td>
+            		<td style ="border: none;">  </td>
+            		<td style ="border: none;" >  </td>
+				
+				<tr>
+		        	<td> Computer </td>
+		        	<td> rolled </td>
+		        	<td id="cpuDice"> 0 </td>
+		        </tr>
+
+		        </table>
+
+
+            <div id="game"><p>&nbsp;</p></div>
+            <div id="result"><p>&nbsp;</p></div>
+        </div>
+        <div id="footer">
+            Copyright &copy; 2015 Greg's Gambits<br />
+            <a href="mailto:jay@rosen.com">jay@rosen.com</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+
+<!--
+   COP2822 0M1
+   Module 3
+   Chapter 3 Madame Vadoma Fortune Telling
+
+   Author: Jay Rosen
+   Date: 01/28/2015
+
+   File name: gregs_fortune.html
+   Supporting files: greg.css, aboutyou.html, index.html, sign.html, contact.html, greg.html, play_games.html
+   Supporting files: images/superhero.jpg, images/madame.jpg
+-->
+
+<title>Greg's Gambits | Madame Vadoma Can Tell Your Fortune</title>
+<link href="greg.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+function startFortune()
+{
+ 	var num = 0;
+	var fortune1 = "You will have a good day someday this week. ";
+	var fortune2 = "You may or may not have a bad day this week. ";
+	var fortune3 = "You have 1 : 175,000,000 chances in winning the lottery today! ";
+	var fortune4 = "The Seattle Seahawks might win the Super Bowl 2015. ;) ";
+	var fortune5 = "The New England Patriots might win the Super Bowl 2015. ;)";
+	var fortune6 = "You will have a good night of sleep if you go to sleep right now. ";
+	var fortune7 = "You are a winner!";
+	
+	num = (Math.floor(Math.random() * 7)) + 1;
+	switch(num)
+	{
+	case 1:
+			document.getElementById("content").innerHTML = fortune1;
+			break;
+	case 2:
+			document.getElementById("content").innerHTML = fortune2;
+			break;
+	case 3:
+			document.getElementById("content").innerHTML = fortune3;
+			break;
+	case 4:
+			document.getElementById("content").innerHTML = fortune4;
+			break;
+	case 5:
+			document.getElementById("content").innerHTML = fortune5;
+			break;
+	case 6:
+			document.getElementById("content").innerHTML = fortune6;
+			break;
+	case 7:
+			document.getElementById("content").innerHTML = fortune7;
+			break;
+	}
+}
+</script>
+</head>
+<body>
+<div id="container">
+
+ <img src="images/superhero.jpg" width="120" height="120" class="floatleft" />
+ <h1 id="logo"><em>Madame Vadoma Can Tell Your Fortune</em></h1>
+ 
+
+<h2 align="center">Let Madame Vadoma predicts Your Fortune</h2>
+
+<p>&nbsp;</p>
+<div id="nav">
+  <p><a href="index.html">Home</a>
+  <a href="greg.html">About Greg</a>
+  <a href="play_games.html">Play a Game</a>
+  <a href="sign.html">Sign In</a>
+  <a href="contact.html">Contact Us</a></p>
+   <a href="aboutyou.html">Tell Greg About You</a></p>
+</div>
+<div id="content">
+	<p class="floatright">Madame Vadoma<br /><br />
+		<img src="images/madame.jpg" /></p>
+	<p>&nbsp;</p>
+	 <input type="button" value = "Get a fortune!" onclick="startFortune();" />
+	 <p>&nbsp;</p>
+
+</div>
+<div id="footer">Copyright &copy; 2013 Greg's Gambits<br />
+<a href="mailto:yourfirstname@yourlastname.com">yourfirstname@yourlastname.com</a></div>
+</div>
+</body>
+</html>

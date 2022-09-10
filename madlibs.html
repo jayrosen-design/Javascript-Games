@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+<title>Dice | Jay Rosen</title>
+
+ <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<link href="greg.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+
+
+ <script type="text/javascript">
+ function startGame1()
+{
+	var gender = "boy";
+ 	var city = " ";
+ 	var monster = " ";
+ 	var food = " ";
+ 	var drink = " ";
+ 	numYears = prompt("Enter a number greater than 0: ");
+ 	gender = prompt("Is the story about a boy or a girl? ");
+ 	letter = gender.charAt(0);
+ 	gender = (letter == "b" || letter == "B")?"boy":"girl";
+ 	pronoun = (gender == "boy")?"he":"she";
+ 	name = prompt("Enter the hero's name: ");
+ 	city = prompt("Enter the name of a city: ");
+ 	monster = prompt("Enter a type of monster: ");
+ 	food = prompt("Enter a food you like: ");
+ 	drink = prompt("Enter a drink you like: ");
+	document.getElementById("content").innerHTML =("Once upon a time, about " + numYears + " years ago, there was a " + gender + " named " + name + ". " + name + " lived in a small cabin in the woods just outside " + city + " limits.</p> <p>" + name + " enjoyed walking in the woods every day until... One day " + pronoun + " came upon a " + monster + " sitting on a log eating a " + food + ".</p> <p>The " + monster + " jumped up, spilling his " + drink + ". " + name + " ran home as fast as " + pronoun + " could but the " + monster + " followed and ...</p><h3>What happened? You decide! </h3> <p>Ending 1: The " + monster + " and " + name + " became best friends and lived in " + name + "'s house happily ever after.</p> <p>Ending 2: The " + monster + " overpowered " + name + " and gobbled down all the " + food + " and " + drink + " in " + name + "'s  refrigerator.</p> <p>Ending 3: " + name + " screamed mean things at the " + monster + ", causing the " + monster + " to turn and run back to the woods, never to be seen again.</p>");
+		}
+
+function startGame2()
+		{
+			var gender = "boy";
+			var name = " ";
+			var job = " ";
+			var vehicle = " ";
+			var month = " ";
+			var color = " ";
+			var verb = " ";
+			var pronoun = " ";
+			var adjective = " ";
+			numYears = prompt("Enter a number greater than 0: ");
+			name = prompt("Enter the hero's name:");
+			gender = prompt("Is this the story about a boy or a girl? ");
+			letter = gender.charAt(0);
+			pronoun = (letter == "b" || letter == "B")? "boy" : "girl";
+			pronoun = (gender == "boy") ?  "him" : "her";
+			verb = prompt("Enter a verb: ");
+			adjective = prompt("Enter an adjective: ");
+			job = prompt("Enter the name of a profession: ");
+			month = prompt("Enter the current Month: ");
+			color = prompt("Enter your favorite color: ");
+			vehicle = prompt("What type of vehicle do you have?: ");
+			document.getElementById("content").innerHTML =("Once upon a time " + name + " had very long hair. It had been " +  numYears + " years since " + name + " had a haircut! " + name + " did not know what style of haircut to get, but thought the " + job + " down the street could give " + pronoun + " some advice. So " + name + " traveled to the " + job + "'s house by " + vehicle + " and asked the " + job + ", 'What kind of haircut should I get?' The " + job + " answered , 'Well, " + adjective + " " + color + " hair is popular in " + month + ". I suggest that!'</p> <p> So, " + name + " took the " + job + "'s advice and headed to the barbershop to get " + adjective + " " + color + " haircut. The barbershop was very crowded, everyone there was trying to get " + adjective + " " + color + " haircuts! The Barber had special technique to cut the hair, instead of scissors, the barber used a " + vehicle +  " to " + verb + " the hair into shape. It was a sight to see! Leaving the barbershop " + name + " thought to " + pronoun + "self 'Gee, I hope this " + adjective + " " + color + " haircut will still be in style " + numYears + " years from now!' </p>");
+
+		}
+</script>
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="../games.html"><img src="../images/logo3.gif"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                   
+                    <li>
+                        <a class="page-scroll" href="../games.html#portfolio">Games</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="../games.html#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="../games.html#contact">Contact</a>
+                    </li>
+
+                    <li>
+                        <a href="http://www.jayrosen.design/index.html" target="blank_">jayrosen.design</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+<div id="container" class="center">
+
+	 <h3>For this game, you will create a story by entering words as prompted. The story will change each time you run this game, as you enter different words.</h3>
+	 
+	<div id="content">
+    <p>&nbsp;</p>
+		<div><button type="button" class="btn btn-primary teal btn-lg" value = "Story 1" onclick="startGame1()" />Story 1</button></div> 
+		<div><button type="button" class="btn btn-primary teal btn-lg" value = "Story 2" onclick="startGame2()" />Story 2</button>
+		</div>
+		</div>
+
+		   
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright teal">Copyright &copy; Jay Rosen 2015</span>
+                </div>
+               
+                
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+  <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../js/jqBootstrapValidation.js"></script>
+    <script src="../js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/agency.js"></script>
+
+</body>
+
+</html>
+
+	

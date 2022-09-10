@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+ <head>
+<!--
+   COP2822 0M1
+   Module 3
+   Chapter 3 Madame Vadoma Fortune Telling
+
+   Author: Jay Rosen
+   Date: 01/28/2015
+
+   File name: greg_tales.html
+   Supporting files: greg.css, aboutyou.html, index.html, sign.html, contact.html, greg.html, play_games.html
+   Supporting files: images/superhero.jpg
+-->
+ <title>Greg's Gambits | Greg's Tales</title>
+ <link href="greg.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript">
+ function startGame1()
+{
+	var gender = "boy";
+ 	var city = " ";
+ 	var monster = " ";
+ 	var food = " ";
+ 	var drink = " ";
+ 	numYears = prompt("Enter a number greater than 0: ");
+ 	gender = prompt("Is the story about a boy or a girl? ");
+ 	letter = gender.charAt(0);
+ 	gender = (letter == "b" || letter == "B")?"boy":"girl";
+ 	pronoun = (gender == "boy")?"he":"she";
+ 	name = prompt("Enter the hero's name: ");
+ 	city = prompt("Enter the name of a city: ");
+ 	monster = prompt("Enter a type of monster: ");
+ 	food = prompt("Enter a food you like: ");
+ 	drink = prompt("Enter a drink you like: ");
+	document.getElementById("content").innerHTML =("Once upon a time, about " + numYears + " years ago, there was a " + gender + " named " + name + ". " + name + " lived in a small cabin in the woods just outside " + city + " limits.</p> <p>" + name + " enjoyed walking in the woods every day until... One day " + pronoun + " came upon a " + monster + " sitting on a log eating a " + food + ".</p> <p>The " + monster + " jumped up, spilling his " + drink + ". " + name + " ran home as fast as " + pronoun + " could but the " + monster + " followed and ...</p><h3>What happened? You decide! </h3> <p>Ending 1: The " + monster + " and " + name + " became best friends and lived in " + name + "'s house happily ever after.</p> <p>Ending 2: The " + monster + " overpowered " + name + " and gobbled down all the " + food + " and " + drink + " in " + name + "'s  refrigerator.</p> <p>Ending 3: " + name + " screamed mean things at the " + monster + ", causing the " + monster + " to turn and run back to the woods, never to be seen again.</p>");
+		}
+
+function startGame2()
+		{
+			var gender = "boy";
+			var name = " ";
+			var job = " ";
+			var vehicle = " ";
+			var month = " ";
+			var color = " ";
+			var verb = " ";
+			var pronoun = " ";
+			var adjective = " ";
+			numYears = prompt("Enter a number greater than 0: ");
+			name = prompt("Enter the hero's name:");
+			gender = prompt("Is this the story about a boy or a girl? ");
+			letter = gender.charAt(0);
+			pronoun = (letter == "b" || letter == "B")? "boy" : "girl";
+			pronoun = (gender == "boy") ?  "him" : "her";
+			verb = prompt("Enter a verb: ");
+			adjective = prompt("Enter an adjective: ");
+			job = prompt("Enter the name of a profession: ");
+			month = prompt("Enter the current Month: ");
+			color = prompt("Enter your favorite color: ");
+			vehicle = prompt("What type of vehicle do you have?: ");
+			document.getElementById("content").innerHTML =("Once upon a time " + name + " had very long hair. It had been " +  numYears + " years since " + name + " had a haircut! " + name + " did not know what style of haircut to get, but thought the " + job + " down the street could give " + pronoun + " some advice. So " + name + " traveled to the " + job + "'s house by " + vehicle + " and asked the " + job + ", 'What kind of haircut should I get?' The " + job + " answered , 'Well, " + adjective + " " + color + " hair is popular in " + month + ". I suggest that!'</p> <p> So, " + name + " took the " + job + "'s advice and headed to the barbershop to get " + adjective + " " + color + " haircut. The barbershop was very crowded, everyone there was trying to get " + adjective + " " + color + " haircuts! The Barber had special technique to cut the hair, instead of scissors, the barber used a " + vehicle +  " to " + verb + " the hair into shape. It was a sight to see! Leaving the barbershop " + name + " thought to " + pronoun + "self 'Gee, I hope this " + adjective + " " + color + " haircut will still be in style " + numYears + " years from now!' </p>");
+
+		}
+</script>
+</head>
+
+<body>
+<div id="container">
+	 <img src="images/superhero.jpg" class="floatleft" />
+	 <h1><em>Greg's Tales</em></h1>
+	 <h3>For this game, you will create a story by entering words as prompted. The story will change each time you run this game, as you enter different words.</h3>
+	 <div id="nav">
+	 	  <p><a href="index.html">Home</a>
+	 	  <a href="greg.html">About Greg</a>
+	 	  <a href="play_games.html">Play a Game</a>
+	 	  <a href="sign.html">Sign In</a>
+	 	  <a href="contact.html">Contact Us</a></p>
+	</div>
+	<div id="content">
+    <p>&nbsp;</p>
+		<input type="button" value = "Story 1" onclick="startGame1()" /> <input type="button" value = "Story 2" onclick="startGame2()" />
+	</div>
+	</div>
+	<div id="footer">Copyright &copy; 2013 Greg's Gambits<br /> <a href="mailto:j.rosen.artist@gmail.com"> jay@rosen.com</a>
+	</div>
+</div>
+</body>
+</html>

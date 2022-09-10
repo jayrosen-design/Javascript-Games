@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+<title>Dice | Jay Rosen</title>
+
+ <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<link href="greg.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+
+<script>
+function getRealName(realname)
+{
+	var real=document.getElementById(realname).value;
+	document.getElementById('real_name').innerHTML=real;
+}
+function getUsername(username)
+{
+	var user=document.getElementById(username).value;
+	document.getElementById('user_name').innerHTML=user;
+}
+function getPoints(points)
+{
+	var pts=document.getElementById(points).value;
+	document.getElementById('user_points').innerHTML=pts;
+}
+function pickAvatar(picked)
+{
+	var avatar=document.getElementById(picked).value;
+	document.getElementById('myavatar').innerHTML=avatar;
+	document.getElementById('avatar_img').innerHTML=("<img src='images/"+avatar+".jpg' />");
+}
+function pickWeapons()
+{
+	var i=0; var j=0; var k=0; 
+	var weapon1=""; var weapon2=""; var weapon3="";
+	for (i=0; i<=9; i++)
+	{
+		if (document.getElementById('w'+i).checked==true)
+		{
+			weapon1=document.getElementById('w'+i).value;
+			document.getElementById('weapon_one').innerHTML=weapon1;
+			break;
+		}
+	}
+	for (j=(i+1); j<=9; j++)
+	{
+		if (document.getElementById('w'+j).checked==true)
+		{
+			weapon2=document.getElementById('w'+j).value;
+			document.getElementById('weapon_two').innerHTML=weapon2;
+			break;
+		}
+	}
+	for (k=(j+1); k<=9; k++)
+	{
+		if (document.getElementById('w'+k).checked==true)
+		{
+			weapon3=document.getElementById('w'+k).value;
+			document.getElementById('weapon_three').innerHTML=weapon3;
+		}
+	}
+}
+function pickSupplies()
+{
+	var i=0; var j=0; var k=0; var m=0; var p=0;
+	var supply1=""; var supply2=""; var supply3="";
+	var supply4=""; var supply5="";
+	for (i=0; i<=9; i++)
+	{
+		if (document.getElementById('s'+i).checked==true)
+		{
+			supply1=document.getElementById('s'+i).value;
+			document.getElementById('supply_one').innerHTML=supply1;
+			break;
+		}
+	}
+	for (j=(i+1); j<=9; j++)
+	{
+		if (document.getElementById('s'+j).checked==true)
+		{
+			supply2=document.getElementById('s'+j).value;
+			document.getElementById('supply_two').innerHTML=supply2;
+			break;
+		}
+	}
+	for (k=(j+1); k<=9; k++)
+	{
+		if (document.getElementById('s'+k).checked==true)
+		{
+			supply3=document.getElementById('s'+k).value;
+			document.getElementById('supply_three').innerHTML=supply3;
+			break;
+		}
+	}	
+	for (m=(k+1); m<=9; m++)
+	{
+		if (document.getElementById('s'+m).checked==true)
+		{
+			supply4=document.getElementById('s'+m).value;
+			document.getElementById('supply_four').innerHTML=supply4;
+			break;
+		}
+	}
+	for (p=(m+1); p<=9; p++)
+	{
+		if (document.getElementById('s'+p).checked==true)
+		{
+			supply5=document.getElementById('s'+p).value;
+			document.getElementById('supply_five').innerHTML=supply5;
+		}
+	}
+}
+</script>
+</head>
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="../games.html"><img src="../images/logo3.gif"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                   
+                    <li>
+                        <a class="page-scroll" href="../games.html#portfolio">Games</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="../games.html#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="../games.html#contact">Contact</a>
+                    </li>
+
+                    <li>
+                        <a href="http://www.jayrosen.design/index.html" target="blank_">jayrosen.design</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+<div id="content" class="center">
+<div><div><form name="inventory">
+<fieldset><h3>Enter the following information:</h3>
+<p><label>Your name:<br /></label>
+	<input type="text" id="realname" size="30" value=""/>
+	 <div><button type="button" class="btn btn-primary teal btn-sm" onclick="getRealName('realname')" value="ok">ok</button></div></p>
+<p><label>Your username:<br /></label>
+	<input type="text" id="username" size="30" value=""/>
+	 <div><button type="button" class="btn btn-primary teal btn-sm" onclick="getUsername('username')" value="ok">ok</button></div></p>
+<p><label>Points to date:<br /></label>
+	<input type="text" id="points" size="10" value=""/>
+	 <div><button type="button" class="btn btn-primary teal btn-sm" onclick="getPoints('points')" value="ok">ok</button></div></p>
+</fieldset></div><div style="clear:both;"></div>
+<div><table width="100%" border="2"><br />
+	<tr><td class="nobdr"><img src="images/bunny.jpg"/></td>
+	<td class="nobdr"><img src="images/elf.jpg" /></td>
+	<td class="nobdr"><img src="images/ghost.jpg" /></td>
+	<td class="nobdr"><img src="images/princess.jpg" /></td>
+	<td class="nobdr"><img src="images/wizard.jpg" /></td></tr>
+	<tr><td class="nobdr"><input type="radio" name="avatar" id="bunny" value="Bunny"
+		onclick="pickAvatar('bunny')"/></td>
+	<td class="nobdr"><input type="radio" name="avatar" id="elf" value="Elf"
+		onclick="pickAvatar('elf')"/></td>
+	<td class="nobdr"><input type="radio" name="avatar" id="ghost" value="Ghost"
+		onclick="pickAvatar('ghost')"/></td>
+	<td class="nobdr"><input type="radio" name="avatar" id="princess" value="Princess"
+		onclick="pickAvatar('princess')"/></td>
+	<td class="nobdr"><input type="radio" name="avatar" id="wizard" value="Wizard"
+		onclick="pickAvatar('wizard')"/></td></tr>
+	</table><div style="width:50%; float:left;"><fieldset>
+<h6>Select three weapons to help you in your quest</h6>
+	<input type="checkbox" name="weapons" id="w0" value="Sword" />Sword<br />
+	<input type="checkbox" name="weapons" id="w1" value="Slingshot" />Slingshot<br />
+	<input type="checkbox" name="weapons" id="w2" value="Shield" />Shield<br />
+	<input type="checkbox" name="weapons" id="w3" value="Bow and 10 Arrows" />Bow and 10 Arrows<br />
+	<input type="checkbox" name="weapons" id="w4" value="3 Magic Rocks" />3 Magic Rocks<br />
+	<input type="checkbox" name="weapons" id="w5" value="Knife" />Knife<br />
+	<input type="checkbox" name="weapons" id="w6" value="Staff" />Staff<br />
+	<input type="checkbox" name="weapons" id="w7" value="Wizard's Wand" />Wizard's Wand<br />
+	<input type="checkbox" name="weapons" id="w8" value="Extra Arrows" />10 Extra Arrows<br />
+	<input type="checkbox" name="weapons" id="w9" value="Cloak of Invisibility" />Cloak of Invisibility<br />
+	 <button type="button" class="btn btn-primary teal btn-lg" onclick="pickWeapons()" value="Enter my selections" />ok</button></fieldset></div>
+<div style="width:50%; float:left;"><fieldset>
+<h6>Select five items to carry with you on your journeys</h6>
+	<input type="checkbox" name="supplies" id="s0" value="3-Day Food Supply" />3-Day Food Supply<br />
+	<input type="checkbox" name="supplies" id="s1" value="Backpack" />Backpack<br />
+	<input type="checkbox" name="supplies" id="s2" value="Kevlar Vest" />Kevlar Vest<br />
+	<input type="checkbox" name="supplies" id="s3" value="3-Day Water Bottle" />3-Day Water Bottle<br />
+	<input type="checkbox" name="supplies" id="s4" value="Box of 4 Firestarters" />Box of 4 Firestarters<br />
+	<input type="checkbox" name="supplies" id="s5" value="Tent" />Tent<br />
+	<input type="checkbox" name="supplies" id="s6" value="First Aid Kit" />First Aid Kit<br />
+	<input type="checkbox" name="supplies" id="s7" value="Warm Jacket" />Warm Jacket<br />
+	<input type="checkbox" name="supplies" id="s8" value="3 Pairs Extra Socks" />3 Pairs Extra Socks <br />
+	<input type="checkbox" name="supplies" id="s9" value="Pen and Notebook" />Pen and Notebook<br />
+	 <button type="button" class="btn btn-primary teal btn-lg" onclick="pickSupplies()" value="Enter my selections" />ok</button></fieldset></div>
+</div><div style="clear:both;"></div>
+<div><br />
+	<input type="reset" value="oops! I made a mistake. Let me start over." class="btn btn-primary teal btn-lg"><br />
+</div><div style="width:90%; float:left;">
+<h3>Your information<br />
+Your name:<span id="real_name">&nbsp;</span><br /><br />
+Username:<span id="user_name">&nbsp;</span><br /><br />
+Player points:<span id="user_points">&nbsp;</span><br /><br />
+Avatar:<span id="myavatar">&nbsp;</span><span id="avatar_img">&nbsp;</span><br /><br />
+Weapons:<br />
+	<span id="weapon_one">&nbsp;</span><br />
+	<span id="weapon_two">&nbsp;</span><br />
+	<span id="weapon_three">&nbsp;</span><br /><br />
+Supplies:<br />
+	<span id="supply_one">&nbsp;</span><br />
+	<span id="supply_two">&nbsp;</span><br />
+	<span id="supply_three">&nbsp;</span><br />
+	<span id="supply_four">&nbsp;</span><br />
+	<span id="supply_five">&nbsp;</span></h3></div>
+</div></form><div style="clear:both;"></div>
+  <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright teal">Copyright &copy; Jay Rosen 2015</span>
+                </div>
+               
+                
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+  <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../js/jqBootstrapValidation.js"></script>
+    <script src="../js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/agency.js"></script>
+
+</body>
+
+</html>
+
+

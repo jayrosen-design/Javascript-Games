@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+<title>Maze | Jay Rosen</title>
+
+ <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<link href="greg.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+
+
+
+<script type = "text/javascript">
+
+
+	var cells;
+	var blocked = "Y"; // flag to test blocks that generate alerts
+	var swapped;
+	function setup()
+	{
+	cells = new Array([document.getElementById("cell00"),
+	document.getElementById("cell01"),
+	document.getElementById("cell02"), 
+	document.getElementById("cell03")], 
+	[document.getElementById("cell10"), 
+	document.getElementById("cell11"), 
+	document.getElementById("cell12"), 
+	document.getElementById("cell13")], 
+	[document.getElementById("cell20"), 
+	document.getElementById("cell21"),
+	document.getElementById("cell22"), 
+	document.getElementById("cell23")], 
+	[document.getElementById("cell30"), 
+	document.getElementById("cell31"), 
+	document.getElementById("cell32"), 
+	document.getElementById("cell33")]);
+	placeNumbers(); //to fill array with damsel, hero, and blue jellybean
+
+	}
+	
+	// SET ARRAY VALUES
+	//i = 0;
+	function placeNumbers() // really placing pictures
+	{
+			// row 1
+			cells[0][0].innerHTML = "Mouse";
+			cells[0][1].innerHTML = "<img src = 'images/blue.jpg'>";
+			cells[0][2].innerHTML = "<img src = 'images/blue.jpg'>";
+			cells[0][3].innerHTML = "<img src = 'images/blue.jpg'>";
+			// row 2
+			cells[1][0].innerHTML = "<img src = 'images/blue.jpg'>";
+			cells[1][1].innerHTML = "<img src = 'images/blue.jpg'>";
+			cells[1][2].innerHTML = "<img src = 'images/blue.jpg'>";
+			cells[1][3].innerHTML = "<img src = 'images/blue.jpg'>";
+			// row 3
+			cells[2][0].innerHTML = "<img src = 'images/blue.jpg'>";
+			cells[2][1].innerHTML = "<img src = 'images/blue.jpg'>";
+			cells[2][2].innerHTML = "<img src = 'images/blue.jpg'>";
+			cells[2][3].innerHTML = "<img src = 'images/blue.jpg'>";
+			// row 4
+			cells[3][0].innerHTML = "<img src = 'images/blue.jpg'>";
+			cells[3][1].innerHTML = "<img src = 'images/blue.jpg'>";
+			cells[3][2].innerHTML = "<img src = 'images/blue.jpg'>";
+			cells[3][3].innerHTML = "Cheese";
+			
+		
+
+	}
+	
+		//establish pitfall locations between 1 and 5 (not including 5)
+		// row 1
+		//var pitFall1 = Math.floor((Math.random() * 0));
+		var pitFall1_1 = Math.floor((Math.random() * 5) + 1); // for col
+		
+		//row 2
+		//var pitFall2 = Math.floor((Math.random() * 1) + 1);
+		var pitFall2_2 = Math.floor((Math.random() * 5) + 1); // for col exclude col zero
+		
+		//row 3
+		//var pitFall3 = Math.floor((Math.random() * 2) + 2);
+		var pitFall3_3 = Math.floor((Math.random() * 5) + 0); // for col
+		
+		//row 4
+		//var pitFall4 = Math.floor((Math.random() * 4) + 3);
+		var pitFall4_4 = Math.floor((Math.random() * 4) + 0); // for col exclude princess cell
+	
+			
+	function doClick(row,col)
+	{
+		var top = row - 1;
+		var bottom = row + 1;
+		var left = col - 1;
+		var right = col + 1;
+		
+		
+		// test for pitfalls first
+		if (cells[row][col] == cells[0][pitFall1_1])
+		{cells[row][col] = alert("Mouse encountered a wall, try a different path.");}
+		
+		else if(cells[row][col] == cells[1][pitFall2_2])
+		{cells[row][col] = alert("Mouse encountered a wall, try a different path.");}
+		
+		else if(cells[row][col] == cells[2][pitFall3_3])
+		{cells[row][col] = alert("Mouse encountered a wall, try a different path.");}
+		
+		 else if(cells[row][col] == cells[3][pitFall3_3])
+		{cells[row][col] = alert("Mouse encountered a wall, try a different path.");}
+		
+		// test moves for swaps
+		else if(top != -1 && cells[top][col].innerHTML == "Mouse")
+		{swap(cells[row][col], cells[top][col]);}
+		else if(right != 4 && cells[row][right].innerHTML == "Mouse")
+		{swap(cells[row][col], cells[row][right]);}
+		else if (left != -1 && cells[row][left].innerHTML == "Mouse")
+		{swap(cells[row][col], cells[row][left]);}
+		else if(bottom != 4 && cells[bottom][col].innerHTML == "Mouse")
+		{swap(cells[row][col], cells[bottom][col]);}
+
+		else
+		{alert("The mouse can't move diagonally. Try again.");}
+		
+		checkWinner();
+
+	}
+	
+	
+		
+	// create function to swap values
+	function swap(firstCell, secondCell)
+	{
+	swapped = true;
+	
+	firstCell.innerHTML = secondCell.innerHTML;
+	secondCell.innerHTML = "<img src = 'images/blue.jpg'>";
+	}
+
+	function checkWinner()
+	{
+
+		if (cells[3][3].innerHTML == "Mouse")
+			{alert("Mouse found the Cheese!");
+			setup();
+			}
+
+
+
+	}
+
+
+
+	
+</script>
+<body id="page-top" class="index" onload = "setup()">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="../games.html"><img src="../images/logo3.gif"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                   
+                    <li>
+                        <a class="page-scroll" href="../games.html#portfolio">Games</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="../games.html#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="../games.html#contact">Contact</a>
+                    </li>
+
+                    <li>
+                        <a href="http://www.jayrosen.design/index.html" target="blank_">jayrosen.design</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+<div id="content" class="center">
+<p> Help the mouse find the cheese! Tap the maze tiles next to the mouse to navigate through the maze.</p> 
+
+
+<table width = "60%" align = "center" style="text-align: center;">
+<tr><td height = "60"><span onclick = "doClick(0,0)" id ="cell00" />&nbsp;</td>
+<td><span onclick = "doClick(0,1)" id = "cell01" />&nbsp;</td>
+<td><span onclick = "doClick(0,2)" id = "cell02" />&nbsp;</td>
+<td><span onclick = "doClick(0,3)" id = "cell03" />&nbsp;</td>
+</tr> 
+<tr>
+<td height = "60"><span onclick = "doClick(1,0)" id = "cell10" />&nbsp;</td>
+<td><span onclick = "doClick(1,1)" id = "cell11" />&nbsp;</td>
+<td><span onclick = "doClick(1,2)" id = "cell12" />&nbsp;</td>
+<td><span onclick = "doClick(1,3)" id = "cell13" />&nbsp;</td>
+</tr> 
+<tr>
+<td height = "60"><span onclick = "doClick(2,0)" id = "cell20" />&nbsp;</td>
+<td><span onclick = "doClick(2,1)" id = "cell21" />&nbsp;</td>
+<td><span onclick = "doClick(2,2)" id = "cell22" />&nbsp;</td>
+<td><span onclick = "doClick(2,3)" id = "cell23" />&nbsp;</td>
+</tr> 
+<tr>
+<td height = "60"><span onclick = "doClick(3,0)" id = "cell30" />&nbsp;</td>
+<td><span onclick = "doClick(3,1)" id = "cell31" />&nbsp;</td>
+<td><span onclick = "doClick(3,2)" id = "cell32" />&nbsp;</td>
+<td><span onclick = "doClick(3,3)" id = "cell33" />&nbsp;</td>
+</tr>
+
+</table>
+
+
+</div>
+
+
+ <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright teal">Copyright &copy; Jay Rosen 2015</span>
+                </div>
+               
+                
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+  <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../js/jqBootstrapValidation.js"></script>
+    <script src="../js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/agency.js"></script>
+
+</body>
+
+</html>
+
+
+

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+<title>Boggle | Jay Rosen</title>
+
+ <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<link href="greg.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+
+
+<script type="text/javascript" src="boggle.js"></script>
+
+<script>
+
+function boggle()
+{
+	var timer = 0; var play = "";
+	var score = 0; var flag = 0;
+	var num = Math.floor(Math.random()*8) + 1;
+	compWords = new Array; notAword = new Array;
+	playWords = new Array();
+	compWords = words(num);
+	yourWord = compWords[0];
+	
+	document.getElementById("letters").innerHTML = yourWord;
+	//get player entries
+	while (play != "Q")
+	{
+		play = prompt("enter a word or enter Q when done");
+		playWords.push(play);
+			if(play != "Q")
+				document.getElementById("entries").innerHTML = playWords.toString();
+	}
+	//check winning score and list bad words
+	var complgth = compWords.length;
+	var playlgth = (playWords.length - 1);
+	for (var i = 0; i < playlgth; i++)
+	{
+		flag = 0;
+		for (var k = 0; k < complgth; k++)
+		{
+			if(playWords[i] == compWords[k])
+			{
+				score++;
+				flag = 1;
+			}
+		}
+		if (flag == 0)
+		notAword.push(playWords[i]);
+	}
+	
+	document.getElementById("result").innerHTML = ("Your score is " + score + ". The following entries are not valid words: <br />" + notAword.toString());
+}
+	
+</script>
+</head>
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="../games.html"><img src="../images/logo3.gif"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                   
+                    <li>
+                        <a class="page-scroll" href="../games.html#portfolio">Games</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="../games.html#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="../games.html#contact">Contact</a>
+                    </li>
+
+                    <li>
+                        <a href="http://www.jayrosen.design/index.html" target="blank_">jayrosen.design</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+	<div id="content" style="width: 600px; margin-left: auto; margin-right: auto; " class="center black">
+		<!-- create HTML to start the game, with initial display -->
+
+	<p>The object of the game is to create as many words as you can from the letters shown below. When you are ready to begin, click the button.</p>
+	
+	<div>
+	<button type="button" class="btn btn-primary teal btn-lg"v alue = "begin the game" onclick = "boggle();" />Play Boggle</div>
+	
+	<h2 style="color:white;"><br /><br />Letters you can use:<br /><div id = "letters" style="color: yellow; font-family: georgia; font-size: 150%;"  >&nbsp;</div><br /></h2>
+	<h2 style="color:white;">Your words so far: <br /><div id = "entries" style="color: yellow; font-family: georgia; font-size: 150%;"> &nbsp; </div><br /></h2>
+	<h2 style="color:white;">Results:<br /><div id = "result" style="color: yellow; font-family: georgia; font-size: 150%;">&nbsp;</div></h2>
+
+
+		
+		
+	</div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright teal">Copyright &copy; Jay Rosen 2015</span>
+                </div>
+               
+                
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+  <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../js/jqBootstrapValidation.js"></script>
+    <script src="../js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/agency.js"></script>
+
+</body>
+
+</html>

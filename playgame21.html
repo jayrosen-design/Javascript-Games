@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+
+<!--
+   COP2822 0M1
+   Module 5
+   Chapter 5 Black jack
+
+   Author: Jay Rosen
+   Date: 02/11/2015
+
+   File name: playgame21.html
+   Supporting files: greg.css, aboutyou.html, index.html, sign.html, contact.html, greg.html, play_games.html
+   Supporting files: images/superhero.jpg, images/player.jpg, images/dealer.jpg
+-->
+
+	<title>Greg's Gambits | Black Jack</title>
+	<link href="greg.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+function battleIt()
+{
+		var playerPlay = 0; 
+		var dealerPlay = 0;
+		var playerPts = 0; 
+		var dealerPts = 0;
+		var playerChoice = " "; 
+		var dealerChoice = " "; 
+		var gameOver = false;
+		var winner = false;
+		document.getElementById("dealerPts").innerHTML = (dealerPts); 
+		document.getElementById("playerPts").innerHTML = (playerPts);
+		document.getElementById("playerWeapon").innerHTML = ("Your hand: ");
+		document.getElementById("dealerWeapon").innerHTML = ("Dealer's hand: ");
+		document.getElementById("winner").innerHTML = ("&nbsp;");
+
+		while ((dealerPts < 199) && (playerPts < 199))
+		{
+
+
+		var choice = prompt("Do you want to play a game of Black Jack? Yes (Y) or Quit (Q)", " ");
+		
+				if ((choice.charAt(0) == 'q') || (choice.charAt(0) == 'Q'))
+					{
+						break;
+					}
+
+
+					//Deal first cards of each game
+			
+
+			// get player's weapon
+
+		while ((choice.charAt(0) != 'Q') || (choice.charAt(0) != 'q') || (playerPlay >= 21) || (dealerPts < 198) || (playerPts < 198) || (winner = true))
+			{
+
+			var playerCard1 = Math.floor(Math.random() * 10 + 1);
+			var playerCard2 = Math.floor(Math.random() * 10 + 1);
+
+			var dealerCard1 = Math.floor(Math.random() * 10 + 1);
+			var dealerCard2 = Math.floor(Math.random() * 10 + 1);
+
+			playerPlay = playerCard1 + playerCard2;
+			dealerPlay = dealerCard1 + dealerCard2;
+
+			document.getElementById("playerWeapon").innerHTML = ("Your hand: " + playerPlay);
+			document.getElementById("dealerWeapon").innerHTML = ("Dealer's hand: " + dealerPlay);
+
+			gameOver = false;
+
+					while ((choice.charAt(0) != 'Q') || (choice.charAt(0) != 'q') || (choice.charAt(0) != 'N') || (choice.charAt(0) != 'n')) 
+					{
+						
+						choice = prompt("Do you want to be dealt another card? Yes (Y) or No (N) ? To leave game type (Q)", " ");
+
+						if ((choice.charAt(0) == 'y') || (choice.charAt(0) == 'Y')) 
+							{
+
+								playerPlay = playerPlay + (Math.floor(Math.random() * 10 + 1));
+								dealerPlay = dealerPlay + (Math.floor(Math.random() * 10 + 1));
+								if ((playerPlay >= 21) || (dealerPlay >= 21))
+									{break;}
+							
+							}
+
+						
+							if ((choice.charAt(0) == 'N') || (choice.charAt(0) == 'n')) 
+							{
+								playerPlay = playerPlay + 0;
+								dealerPlay = dealerPlay + 0;
+									
+								break;
+
+
+
+
+
+							}
+					
+						
+						if ((choice.charAt(0) == 'q') || (choice.charAt(0) == 'Q'))
+							{
+								break;
+							}
+						
+
+						document.getElementById("playerWeapon").innerHTML = ("Your hand: " + playerPlay);
+						document.getElementById("dealerWeapon").innerHTML = ("Dealer's hand: " + dealerPlay);
+
+		   				
+				         //Dealer wins
+				
+				         }
+
+
+				         while ((choice.charAt(0) != 'Q') || (choice.charAt(0) != 'q') || (playerPlay >= 21) || (gameOver = false) || (dealerPts < 198) || (playerPts < 198) || (winner = true))
+				       {
+								if (((dealerPlay == 21)))
+								 {
+										document.getElementById("winner").innerHTML = ("<img src='images/dealer.jpg' />");
+										dealerPts = dealerPts + 50;
+										document.getElementById("dealerPts").innerHTML = (dealerPts);
+										document.getElementById("playerPts").innerHTML = (playerPts);
+										gameOver = true;
+								}
+								
+
+								if (((dealerPlay > playerPlay)&&(playerPlay < 21)))
+								 {
+										document.getElementById("winner").innerHTML = ("<img src='images/dealer.jpg' />");
+										dealerPts = dealerPts + 50;
+										document.getElementById("dealerPts").innerHTML = (dealerPts);
+										document.getElementById("playerPts").innerHTML = (playerPts);
+										gameOver = true;
+								}
+
+
+
+								//You win
+								if (((playerPlay == 21)))
+								{
+									document.getElementById("winner").innerHTML = ("<img src='images/player.jpg' />");
+									playerPts = playerPts + 50;
+									document.getElementById("dealerPts").innerHTML = (dealerPts);
+									document.getElementById("playerPts").innerHTML = (playerPts);
+									gameOver = true;
+							
+								}
+
+
+								if (((playerPlay > dealerPlay)&&(dealerPlay < 21)))
+								{
+									document.getElementById("winner").innerHTML = ("<img src='images/player.jpg' />");
+									playerPts = playerPts + 50;
+									document.getElementById("dealerPts").innerHTML = (dealerPts);
+									document.getElementById("playerPts").innerHTML = (playerPts);
+									gameOver = true;
+							
+								}
+
+								//Tie
+								
+						
+
+
+								if (((playerPlay == dealerPlay)&&(playerPlay <= 21)))
+								{
+									document.getElementById("winner").innerHTML = ("This round is a tie. New hand must be dealt...");
+									gameOver = true;
+
+								}
+
+
+
+							if (dealerPts > 199)
+							{
+								document.getElementById("winner").innerHTML = ("You ran out of chips. The house always wins.");
+								winner = true;
+								
+								return;
+							}
+
+							if (playerPts > 199)
+							{
+								document.getElementById("winner").innerHTML = ("You win! Congratulations!");
+								winner = true;
+								
+								return;
+							}	
+
+					if (winner = true)
+						break;
+
+				}
+
+		}
+		if ((choice.charAt(0) == 'q') || (choice.charAt(0) == 'Q'))
+					{
+						break;
+					}
+		if (winner = true)
+			break;
+
+	}
+
+	
+	//display the final winner
+	if ((choice.charAt(0) == 'q') || (choice.charAt(0) == 'Q'))
+			document.getElementById("winner").innerHTML = ("Your safest bet is to cash out early!");
+	
+}
+</script>
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+</head>
+
+<body>
+<div id="container">
+ <img src="images/superhero.jpg" width="120" height="120" class="floatleft" />
+ <h1 align="center">Black Jack</h1>
+<div style ="clear:both;"></div>  
+<div id="nav">
+  <p><a href="index.html">Home</a>
+  <a href="greg.html">About Greg</a>
+  <a href="play_games.html">Play a Game</a>
+  <a href="sign.html">Sign In</a>
+  <a href="contact.html">Contact Us</a></p>
+</div>
+<div id="content">
+  <table width = "85%" cellpadding="5" cellspacing="0" border = "0">
+  <tr><td><img src="images/player.jpg" width="120" height="168" /></td>
+  <td><img src="images/dealer.jpg" width="120" height="168" /></td></tr>
+  <tr><td><span class="style1">You </span></td>
+<td><span class="style1">Dealer </span></td></tr>
+  <tr><td id = "playerWeapon" span class="style1">Your hand</span></td>
+  <td id = "dealerWeapon" span class="style1">Dealer's hand</span></td></tr>
+  <tr><td colspan = 2><span class="style1">The winner is:</span></td></tr>
+ <tr><td colspan = 2 id="winner" align = "center" class="style1">&nbsp;</td></tr>
+<tr><td><span class="style1">Your points: </span></td> 
+<td><span class="style1">Dealer's points:</span></td></tr>  
+<tr><td class="style1" id = "playerPts">0</td> <td class="style1" id = "dealerPts">0</td></tr>
+<tr><td><input type="button" id="battle" value="Play Black Jack" onclick="battleIt()"; /> </td>
+<td><input type="button" id="return" value="Return to instructions" onclick="location.href = 'game21.html'"; /></td>
+</table>
+</div>
+<div id="footer">Copyright &copy; 2013 Greg's Gambits<br />
+<a href="mailto:yourfirstname@yourlastname.com">jay@rosen.com</a>
+</div>
+</div>
+</body>
+</html>

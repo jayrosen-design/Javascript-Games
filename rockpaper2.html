@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+<!--
+   COP2822 0M1
+   Module 5
+   Chapter 5 battle (rock, paper, scissors)
+
+   Author: Jay Rosen
+   Date: 02/11/2015
+
+   File name: battleground.html
+   Supporting files: greg.css, gregs_encoder.html, gregs_fortune.html, aboutyou.html, index.html, sign.html, contact.html, greg.html, play_games.html
+   Supporting files: images/superhero.jpg, images/wizard.jpg, images/troll.jpg,
+-->
+	<title>Rock, Paper, Scissors</title>
+
+ <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<link href="greg.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+
+<script type="text/javascript">
+function battleIt()
+{
+		var wizardPlay = 0; var trollPlay = 0;
+		var wizardPts = 100; var trollPts = 100;
+		var rocks = "magic rocks"; var sword = "the sword";
+		var arrow = "bow and arrow";
+		var wizardChoice = " "; var trollChoice = " "; 
+		document.getElementById("trollPts").innerHTML = (trollPts); 
+		document.getElementById("wizardPts").innerHTML = (wizardPts);
+		document.getElementById("wizardWeapon").innerHTML = ("Your weapon: ");
+		document.getElementById("trollWeapon").innerHTML = ("The troll's weapon: ");
+		document.getElementById("winner").innerHTML = ("&nbsp;");
+		//loop repeats until troll or wizard get 130 points 
+		while ((trollPts < 130) && (wizardPts < 130))
+		{
+			// get wizard's weapon
+			wizardPlay = parseInt(prompt("What weapon do you choose? Enter 1 for magic rocks (enter 1), 2 for the sword, or 3 for the bow and arrow: (Enter 4 to leave the game at any time)" , " "));
+			if (wizardPlay == 4) break;
+	                // get troll's weapon
+			trollPlay = Math.floor(Math.random() * 3 + 1);
+			// assign weapon to wizard and troll
+			 if (trollPlay == 1)
+			trollChoice = rocks;
+			 if (trollPlay == 2)
+			 trollChoice = sword;
+			 if (trollPlay == 3)
+			trollChoice = arrow;
+			 if (wizardPlay == 1)
+			 wizardChoice = rocks;
+			 if (wizardPlay == 2)
+			 wizardChoice = sword;
+			 if (wizardPlay == 3)
+			 wizardChoice = arrow;
+			//display weapon selections
+			document.getElementById("wizardWeapon").innerHTML = ("Your weapon: " + wizardChoice);
+			document.getElementById("trollWeapon").innerHTML = ("The troll's weapon: " + trollChoice);
+			alert("This round of the battle begins now!");
+	                //find the winner
+			if (((trollPlay == 1)&&(wizardPlay == 3)) || ((trollPlay == 2)&&(wizardPlay == 1)) || ((trollPlay == 3)&&(wizardPlay == 2)))
+			 {
+					document.getElementById("winner").innerHTML = ("<img src='images/troll.jpg' />");
+					trollPts = trollPts + 10;
+					wizardPts = wizardPts - 10;
+					document.getElementById("trollPts").innerHTML = (trollPts);
+					document.getElementById("wizardPts").innerHTML = (wizardPts);
+			}
+			
+			if (((wizardPlay == 1)&&(trollPlay == 3)) || ((wizardPlay == 2)&&(trollPlay == 1)) || ((wizardPlay == 3)&&(trollPlay == 2)))
+			{
+				document.getElementById("winner").innerHTML = ("<img src='images/wizard.jpg' />");
+				trollPts = trollPts - 10;
+				wizardPts = wizardPts + 10;
+				document.getElementById("trollPts").innerHTML = (trollPts);
+				document.getElementById("wizardPts").innerHTML = (wizardPts);
+			}
+			
+			if (((wizardPlay == 1)&&(trollPlay == 1)) || ((wizardPlay == 2)&&(trollPlay == 2)) || ((wizardPlay == 3)&&(trollPlay == 3)))
+			{
+				document.getElementById("winner").innerHTML = ("This round is a tie. New weapons must be chosen...");
+			}
+	}
+	//display the final winner
+	if (wizardPlay == 4)
+		document.getElementById("winner").innerHTML = ("It's true: when you run, you live to fight another day. See you again soon!");
+
+	if (trollPts >= 130)
+	document.getElementById("winner").innerHTML = ("The battle has been fought valiently but the troll has beaten you. Go home and nurse your wounds.");
+
+	if (wizardPts >= 130)
+	document.getElementById("winner").innerHTML = ("The battle has been fought valiently and you have prevailed! Congratulations!");		
+}
+</script>
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="../games.html"><img src="../images/logo3.gif"></a>
+            </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                   
+                    <li>
+                        <a class="page-scroll" href="../games.html#portfolio">Games</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="../games.html#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="../games.html#contact">Contact</a>
+                    </li>
+
+                    <li>
+                        <a href="http://www.jayrosen.design/index.html" target="blank_">jayrosen.design</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+<table class="center">
+<tr><td><button type="button" id="battle" class="btn btn-primary teal btn-lg " value="Let the battle begin!" onclick="battleIt()"; /> Battle!</td>
+<td><button type="button" id="return" class="btn btn-primary teal btn-lg " value="Return to battle instructions" onclick="location.href = 'rockpaper.html'"; />Instructions</td>
+</tr>
+</table>
+
+  <table id="content" class="center right" width = "85%" cellpadding="5" cellspacing="0" border = "0">
+  <tr><td><img src="images/wizard.jpg" width="120" height="168" /></td>
+  <td><img src="images/troll.jpg" width="120" height="168" /></td></tr>
+  <tr><td><span class="style1">wizard uses: </span></td>
+<td><span class="style1">troll uses: </span></td></tr>
+  <tr><td id = "wizardWeapon" span class="style1">Weapon goes here</span></td>
+  <td id = "trollWeapon" span class="style1">Weapon goes here</span></td></tr>
+  <tr><td colspan = 2><span class="style1">The winner is:</span></td></tr>
+ <tr><td colspan = 2 id="winner" align = "center" class="style1">&nbsp;</td></tr>
+<tr><td><span class="style1">wizard points: </span></td> 
+<td><span class="style1">troll points:</span></td></tr>  
+<tr><td class="style1" id = "wizardPts">100</td> <td class="style1" id = "trollPts">100</td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright teal">Copyright &copy; Jay Rosen 2015</span>
+                </div>
+               
+                
+            </div>
+        </div>
+    </footer>
+
+
+  <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../js/jqBootstrapValidation.js"></script>
+    <script src="../js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/agency.js"></script>
+
+</body>
+
+</html>
+
+
+	

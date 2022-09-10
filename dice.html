@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+<title>Dice | Jay Rosen</title>
+
+ <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<link href="greg.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+
+
+
+<script type="text/javascript">
+
+var counter = 0;
+var playerPts = 0;
+var cpuPts = 0;
+var playerWinner = false;
+var cpuWinner = false;
+var GameOver = 50;
+
+function reset()
+{
+		window.location.reload();
+
+}
+
+
+
+function rollDice()
+{
+ 	var die1 = 0;
+ 	var die2 = 0;
+ 	var die3 = 0;
+ 	var die4 = 0;
+
+ 	var player1 = 0;
+ 	var player2 = 0;
+ 	var cpu1 = 0;
+ 	var cpu2 = 0;
+
+ 	var playerDubs = 0;
+	var cpuDubs = 0;
+
+ 	var playerDice = 0;
+ 	var cpuDice = 0;
+
+	var roll1 = ("<img src = 'images/Die1.png' />");
+	var roll2 = ("<img src = 'images/Die2.png' />");
+	var roll3 = ("<img src = 'images/Die3.png' />");
+	var roll4 = ("<img src = 'images/Die4.png' />");
+	var roll5 = ("<img src = 'images/Die5.png' />");
+	var roll6 = ("<img src = 'images/Die6.png' />");
+
+	var CPUroll1 = ("<img src = 'images/Die1_.png' />");
+	var CPUroll2 = ("<img src = 'images/Die2_.png' />");
+	var CPUroll3 = ("<img src = 'images/Die3_.png' />");
+	var CPUroll4 = ("<img src = 'images/Die4_.png' />");
+	var CPUroll5 = ("<img src = 'images/Die5_.png' />");
+	var CPUroll6 = ("<img src = 'images/Die6_.png' />");
+
+
+
+	die1 = (Math.floor(Math.random() * 6)) + 1;
+	switch(die1)
+	{
+	case 1:
+			document.getElementById("die1").innerHTML = roll1;
+			player1 = 1;
+			break;
+	case 2:
+			document.getElementById("die1").innerHTML = roll2;
+			player1 = 2;
+			break;
+	case 3:
+			document.getElementById("die1").innerHTML = roll3;
+			player1 = 3;
+			break;
+	case 4:
+			document.getElementById("die1").innerHTML = roll4;
+			player1 = 4;
+			break;
+	case 5:
+			document.getElementById("die1").innerHTML = roll5;
+			player1 = 5;
+			break;
+	case 6:
+			document.getElementById("die1").innerHTML = roll6;
+			player1 = 6;
+			break;
+	}
+
+
+	die2 = (Math.floor(Math.random() * 6)) + 1;
+	switch(die2)
+	{
+	case 1:
+			document.getElementById("die2").innerHTML = roll1;
+			player2 = 1;
+			break;
+	case 2:
+			document.getElementById("die2").innerHTML = roll2;
+			player2 = 2;
+			break;
+	case 3:
+			document.getElementById("die2").innerHTML = roll3;
+			player2 = 3;
+			break;
+	case 4:
+			document.getElementById("die2").innerHTML = roll4;
+			player2 = 4;
+			break;
+	case 5:
+			document.getElementById("die2").innerHTML = roll5;
+			player2 = 5;
+			break;
+	case 6:
+			document.getElementById("die2").innerHTML = roll6;
+			player2 = 6;
+			break;
+	}
+
+
+die3 = (Math.floor(Math.random() * 6)) + 1;
+	switch(die3)
+	{
+	case 1:
+			document.getElementById("die3").innerHTML = CPUroll1;
+			cpu1 = 1;
+			break;
+	case 2:
+			document.getElementById("die3").innerHTML = CPUroll2;
+			cpu1 = 2;
+			break;
+	case 3:
+			document.getElementById("die3").innerHTML = CPUroll3;
+			cpu1 = 3;
+			break;
+	case 4:
+			document.getElementById("die3").innerHTML = CPUroll4;
+			cpu1 =4;
+			break;
+	case 5:
+			document.getElementById("die3").innerHTML = CPUroll5;
+			cpu1 = 5;
+			break;
+	case 6:
+			document.getElementById("die3").innerHTML = CPUroll6;
+			cpu1 = 6;
+			break;
+	}
+
+
+	die4 = (Math.floor(Math.random() * 6)) + 1;
+	switch(die4)
+	{
+	case 1:
+			document.getElementById("die4").innerHTML = CPUroll1;
+			cpu2 = 1;
+			break;
+	case 2:
+			document.getElementById("die4").innerHTML = CPUroll2;
+			cpu2 = 2;
+			break;
+	case 3:
+			document.getElementById("die4").innerHTML = CPUroll3;
+			cpu2 = 3;
+			break;
+	case 4:
+			document.getElementById("die4").innerHTML = CPUroll4;
+			cpu2 = 4;
+			break;
+	case 5:
+			document.getElementById("die4").innerHTML = CPUroll5;
+			cpu2 = 5;
+			break;
+	case 6:
+			document.getElementById("die4").innerHTML = CPUroll6;
+			cpu2 = 6;
+			break;
+	}
+
+
+count();
+
+
+playerDice = (player1 + player2)
+	document.getElementById("playerDice").innerHTML = (playerDice);
+
+cpuDice = (cpu1 + cpu2)
+	document.getElementById("cpuDice").innerHTML = (cpuDice);
+
+
+	if (player1 = player2)
+	{
+		playerDubs = (playerDice + playerDice);
+		playerDubs = playerDice;
+	}
+
+	if (cpu1 = cpu2)
+	{
+		cpuDubs = (cpuDice + cpuDice);
+		cpuDubs = cpuDice;
+	}
+
+
+winner(playerDice, cpuDice);
+
+
+}
+
+
+function count()
+{
+	counter = counter + 1;
+
+}
+
+
+function winner(playerDice, cpuDice)
+{
+
+	if (playerDice > cpuDice)
+	{
+
+		playerPts = playerPts + playerDice;
+		document.getElementById("Winner").innerHTML = ("<h2>You won round " + counter + "</h2>");
+		document.getElementById("playerPts").innerHTML = (playerPts);
+	}
+
+	if (cpuDice > playerDice)
+	{
+
+		cpuPts = cpuPts + cpuDice;
+		document.getElementById("Winner").innerHTML = ("<h2>Computer won round " + counter + "</h2>");
+		document.getElementById("cpuPts").innerHTML = (cpuPts);
+	}
+	
+	
+	if (playerDice == cpuDice)
+	{
+		document.getElementById("Winner").innerHTML = ("<h2>Round " + counter + " is a Tie.</h2>");
+
+	}
+
+
+	if (playerPts == GameOver)
+			{	
+				document.getElementById("GameOver").innerHTML = ("<h2>You won the game of Dice!!!<br> <br> :-) </h1>");
+			}
+
+	if (playerPts > GameOver)
+			{	
+				document.getElementById("GameOver").innerHTML = ("<h2>You won the game of Dice!!!<br> <br> :-) </h1>");
+			}
+
+
+	if (cpuPts == GameOver || cpuPts > GameOver)
+			{
+				document.getElementById("GameOver").innerHTML = ("<h2>You lost to the Computer at Dice!!!<br> <br> :-( </h1>");
+			}
+
+	if (cpuPts > GameOver)
+			{
+				document.getElementById("GameOver").innerHTML = ("<h2>You lost to the Computer at Dice!!!<br> <br> :-( </h1>");
+			}
+
+}
+
+
+
+
+
+</script>
+</head>
+
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="../games.html"><img src="../images/logo3.gif"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                   
+                    <li>
+                        <a class="page-scroll" href="../games.html#portfolio">Games</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="../games.html#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="../games.html#contact">Contact</a>
+                    </li>
+
+                    <li>
+                        <a href="http://www.jayrosen.design/index.html" target="blank_">jayrosen.design</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="center">
+            
+            	<table style="text-align: center; magin: 0 auto; border: none;" class="center">
+            	
+            	
+
+
+            	<tr>
+		        	
+		        	<td id="Winner" colspan="3"> You vs Computer </td>
+
+		        </tr>
+		        <tr>
+		        	<td id="GameOver" colspan="3"> </td>
+
+		        </tr>
+
+		        <tr>
+		        	<td> Your </td>
+		        	<td> Points </td>
+		        	<td id="playerPts"> 0 </td>
+		        </tr>
+
+		           <tr>
+		        	<td> Computer's </td>
+		        	<td> Points </td>
+		        	<td id="cpuPts"> 0 </td>
+		        </tr>
+
+		        <tr>
+            		<td style="padding: 20px; border: none;">  </td>
+            		<td style ="border: none;">  </td>
+            		<td style ="border: none;">  </td>
+
+            	</tr>
+
+            	<!-- Player's dice -->
+            	<tr>
+		            <td id="die1" style="margin: 20px 20px 20px 20px; border: none; ">
+		                <img src="images/Die1.png" />
+		            </td>
+
+		            <td style = "margin: 20px 20px 20px 20px; border: none;"> </td>
+
+					<td id="die2" style="margin: 20px 20px 20px 20px; border: none; ">
+		                <img src="images/Die1.png" />
+		            </td>
+		        </tr>
+				<tr>
+            		<td style="padding: 20px; border: none;">  </td>
+            		<td style ="border: none;">  </td>
+            		<td style ="border: none;" >  </td>
+
+            	</tr>
+
+		        <tr>
+		        	<td> Player </td>
+		        	<td> rolled </td>
+		        	<td id="playerDice"> 0 </td>
+		        </tr>
+
+
+
+				<tr>
+            		<td style="padding: 20px; border: none;">  </td>
+            		<td style ="border: none;">  </td>
+            		<td style ="border: none;" >  </td>
+
+            	</tr>
+
+
+		        <!-- Computer Player's dice -->
+				<tr>
+		            <td id="die3" style="margin: 20px 20px 20px 20px; border: none; ">
+		                <img src="images/Die1_.png" />
+		            </td>
+
+		            <td style = "margin: 20px 20px 20px 20px; border: none;"> </td>
+
+					<td id="die4" style="margin: 20px 20px 20px 20px; border: none; ">
+		                <img src="images/Die1_.png" />
+		            </td>
+		        </tr>
+				<tr>
+            		<td style="padding: 20px; border: none;">  </td>
+            		<td style ="border: none;">  </td>
+            		<td style ="border: none;" >  </td>
+				
+				<tr>
+		        	<td> Computer </td>
+		        	<td> rolled </td>
+		        	<td id="cpuDice"> 0 </td>
+		        </tr>
+
+		        </table>
+
+
+		        <table class="center">
+
+<a href="#"><button type="button" class="btn btn-primary teal btn-lg" value="Roll Dice" onclick="rollDice();"; />Start Game</a>
+
+<a href="#"><button type="button" type="reset" value="Reset Game"  onclick="reset();" class="btn btn-primary teal btn-lg"  />Reset Game</a>
+</table>
+
+
+<!-- Buttons -->
+            
+
+
+
+            <div id="game"><p>&nbsp;</p></div>
+            <div id="result"><p>&nbsp;</p></div>
+      
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright teal">Copyright &copy; Jay Rosen 2015</span>
+                </div>
+               
+                
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+  <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../js/jqBootstrapValidation.js"></script>
+    <script src="../js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/agency.js"></script>
+
+</body>
+
+</html>
+
+

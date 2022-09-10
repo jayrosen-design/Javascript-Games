@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+<!--
+   COP2822 0M1
+   Module 11
+   Final Project (WORK IN PROGRESS)
+   Jay's Games
+
+   Author: Jay Rosen
+   Date: 04/10/2015
+
+   File name: games.html
+-->
+
+<title>Black Jack</title>
+
+ <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<link href="greg.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+
+
+
+
+<script type="text/javascript">
+function battleIt()
+{
+		var playerPlay = 0; 
+		var dealerPlay = 0;
+		var playerPts = 0; 
+		var dealerPts = 0;
+		var playerChoice = " "; 
+		var dealerChoice = " "; 
+		var gameOver = false;
+		var winner = false;
+		document.getElementById("dealerPts").innerHTML = (dealerPts); 
+		document.getElementById("playerPts").innerHTML = (playerPts);
+		document.getElementById("playerWeapon").innerHTML = ("Your hand: ");
+		document.getElementById("dealerWeapon").innerHTML = ("Dealer's hand: ");
+		document.getElementById("winner").innerHTML = ("&nbsp;");
+
+		while ((dealerPts < 199) && (playerPts < 199))
+		{
+
+
+		var choice = prompt("Do you want to play a game of Black Jack? Yes (Y) or Quit (Q)", " ");
+		
+				if ((choice.charAt(0) == 'q') || (choice.charAt(0) == 'Q'))
+					{
+						break;
+					}
+
+
+					//Deal first cards of each game
+			
+
+			// get player's weapon
+
+		while ((choice.charAt(0) != 'Q') || (choice.charAt(0) != 'q') || (playerPlay >= 21) || (dealerPts < 198) || (playerPts < 198) || (winner = true))
+			{
+
+			var playerCard1 = Math.floor(Math.random() * 10 + 1);
+			var playerCard2 = Math.floor(Math.random() * 10 + 1);
+
+			var dealerCard1 = Math.floor(Math.random() * 10 + 1);
+			var dealerCard2 = Math.floor(Math.random() * 10 + 1);
+
+			playerPlay = playerCard1 + playerCard2;
+			dealerPlay = dealerCard1 + dealerCard2;
+
+			document.getElementById("playerWeapon").innerHTML = ("Your hand: " + playerPlay);
+			document.getElementById("dealerWeapon").innerHTML = ("Dealer's hand: " + dealerPlay);
+
+			gameOver = false;
+
+					while ((choice.charAt(0) != 'Q') || (choice.charAt(0) != 'q') || (choice.charAt(0) != 'N') || (choice.charAt(0) != 'n')) 
+					{
+						
+						choice = prompt("Do you want to be dealt another card? Yes (Y) or No (N) ? To leave game type (Q)", " ");
+
+						if ((choice.charAt(0) == 'y') || (choice.charAt(0) == 'Y')) 
+							{
+
+								playerPlay = playerPlay + (Math.floor(Math.random() * 10 + 1));
+								dealerPlay = dealerPlay + (Math.floor(Math.random() * 10 + 1));
+								if ((playerPlay >= 21) || (dealerPlay >= 21))
+									{break;}
+							
+							}
+
+						
+							if ((choice.charAt(0) == 'N') || (choice.charAt(0) == 'n')) 
+							{
+								playerPlay = playerPlay + 0;
+								dealerPlay = dealerPlay + 0;
+									
+								break;
+
+
+
+
+
+							}
+					
+						
+						if ((choice.charAt(0) == 'q') || (choice.charAt(0) == 'Q'))
+							{
+								break;
+							}
+						
+
+						document.getElementById("playerWeapon").innerHTML = ("Your hand: " + playerPlay);
+						document.getElementById("dealerWeapon").innerHTML = ("Dealer's hand: " + dealerPlay);
+
+		   				
+				         //Dealer wins
+				
+				         }
+
+
+				         while ((choice.charAt(0) != 'Q') || (choice.charAt(0) != 'q') || (playerPlay >= 21) || (gameOver = false) || (dealerPts < 198) || (playerPts < 198) || (winner = true))
+				       {
+								if (((dealerPlay == 21)))
+								 {
+										document.getElementById("winner").innerHTML = ("<img src='images/dealer.jpg' />");
+										dealerPts = dealerPts + 50;
+										document.getElementById("dealerPts").innerHTML = (dealerPts);
+										document.getElementById("playerPts").innerHTML = (playerPts);
+										gameOver = true;
+								}
+								
+
+								if (((dealerPlay > playerPlay)&&(playerPlay < 21)))
+								 {
+										document.getElementById("winner").innerHTML = ("<img src='images/dealer.jpg' />");
+										dealerPts = dealerPts + 50;
+										document.getElementById("dealerPts").innerHTML = (dealerPts);
+										document.getElementById("playerPts").innerHTML = (playerPts);
+										gameOver = true;
+								}
+
+
+
+								//You win
+								if (((playerPlay == 21)))
+								{
+									document.getElementById("winner").innerHTML = ("<img src='images/player.jpg' />");
+									playerPts = playerPts + 50;
+									document.getElementById("dealerPts").innerHTML = (dealerPts);
+									document.getElementById("playerPts").innerHTML = (playerPts);
+									gameOver = true;
+							
+								}
+
+
+								if (((playerPlay > dealerPlay)&&(dealerPlay < 21)))
+								{
+									document.getElementById("winner").innerHTML = ("<img src='images/player.jpg' />");
+									playerPts = playerPts + 50;
+									document.getElementById("dealerPts").innerHTML = (dealerPts);
+									document.getElementById("playerPts").innerHTML = (playerPts);
+									gameOver = true;
+							
+								}
+
+								//Tie
+								
+						
+
+
+								if (((playerPlay == dealerPlay)&&(playerPlay <= 21)))
+								{
+									document.getElementById("winner").innerHTML = ("This round is a tie. New hand must be dealt...");
+									gameOver = true;
+
+								}
+
+
+
+							if (dealerPts > 199)
+							{
+								document.getElementById("winner").innerHTML = ("You ran out of chips. The house always wins.");
+								winner = true;
+								
+								return;
+							}
+
+							if (playerPts > 199)
+							{
+								document.getElementById("winner").innerHTML = ("You win! Congratulations!");
+								winner = true;
+								
+								return;
+							}	
+
+					if (winner = true)
+						break;
+
+				}
+
+		}
+		if ((choice.charAt(0) == 'q') || (choice.charAt(0) == 'Q'))
+					{
+						break;
+					}
+		if (winner = true)
+			break;
+
+	}
+
+	
+	//display the final winner
+	if ((choice.charAt(0) == 'q') || (choice.charAt(0) == 'Q'))
+			document.getElementById("winner").innerHTML = ("Your safest bet is to cash out early!");
+	
+}
+</script>
+
+</head>
+
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="../games.html"><img src="../images/logo3.gif"></a>
+            </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                   
+                    <li>
+                        <a class="page-scroll" href="../games.html#portfolio">Games</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="../games.html#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="../games.html#contact">Contact</a>
+                    </li>
+
+                    <li>
+                        <a href="http://www.jayrosen.design/index.html" target="blank_">jayrosen.design</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+   
+
+
+        <div class="container bg-blue center right" id="fortune-bg">
+            <div class="intro-text">
+            <div class="intro-lead-in" id="vadoma">Black Jack</div>     
+                <div class="teal" id="content">  
+
+                <table width = "85%" cellpadding="5" cellspacing="0" border = "0">
+  <tr><td><img src="images/player.jpg" width="120" height="168" /></td>
+  <td><img src="images/dealer.jpg" width="120" height="168" /></td></tr>
+  <tr><td><span class="style1">You </span></td>
+<td><span class="style1">Dealer </span></td></tr>
+  <tr><td id = "playerWeapon" span class="style1">Your hand</span></td>
+  <td id = "dealerWeapon" span class="style1">Dealer's hand</span></td></tr>
+  <tr><td colspan = 2><span class="style1">The winner is:</span></td></tr>
+ <tr><td colspan = 2 id="winner" align = "center" class="style1">&nbsp;</td></tr>
+<tr><td><span class="style1">Your points: </span></td> 
+<td><span class="style1">Dealer's points:</span></td></tr>  
+<tr><td class="style1" id = "playerPts">0</td> <td class="style1" id = "dealerPts">0</td></tr>
+</table>
+
+<table class="center">
+<tr>
+
+<div><button type="button" id="battle" class="btn btn-primary teal btn-lg" value="Play Black Jack" onclick="battleIt()"; />Start Game</div>
+<div ><button type="button" id="return" class="btn btn-primary teal btn-lg" value="Return to instructions" onclick="location.href = 'blackjack2.html'"; />Read Instructions</div>
+
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright teal">Copyright &copy; Jay Rosen 2015</span>
+                </div>
+               
+                
+            </div>
+        </div>
+    </footer>
+
+
+  <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../js/jqBootstrapValidation.js"></script>
+    <script src="../js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/agency.js"></script>
+
+</body>
+
+</html>
+
+
+	

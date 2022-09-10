@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+<!--
+   COP2822 0M1
+   Module 5
+   Chapter 5 battle (rock, paper, scissors)
+
+   Author: Jay Rosen
+   Date: 02/11/2015
+
+   File name: greg_battle.html
+   Supporting files: greg.css, gregs_encoder.html, gregs_fortune.html, aboutyou.html, index.html, sign.html, contact.html, greg.html, play_games.html
+   Supporting files: images/superhero.jpg, images/wizard.jpg, images/troll.jpg,
+-->
+
+	<title>Rock, Paper, Scissors</title>
+
+ <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<link href="greg.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="../games.html"><img src="../images/logo3.gif"></a>
+            </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                   
+                    <li>
+                        <a class="page-scroll" href="../games.html#portfolio">Games</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="../games.html#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="../games.html#contact">Contact</a>
+                    </li>
+
+                    <li>
+                        <a href="http://www.jayrosen.design/index.html" target="blank_">jayrosen.design</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+<table class="center">
+<tr>
+<td col="2">
+<a href="#"><button type="button" id="battle" class="btn btn-primary teal btn-lg "  value="Begin the battle!" onclick="location.href = 'rockpaper2.html'"; />Start Game</a>
+</td>
+</tr></table>
+
+
+<div class="center right">
+  <table width = "85%" cellpadding="5" cellspacing="0" border = "0">
+  <tr><td colspan = 4><span class="style1">In this game you will battle the evil troll. You can choose 
+  your weapon from the three shown -- a set of magic rocks that are a lot stronger and heavier than they
+  look, an extremely sharp sword, or a crossbow and arrow. Unfortunately, you do not know ahead of time
+  what weapon the troll will use. You each begin with 100 points. For each round of the battle, the winner
+  takes 10 points from the loser. When either of you reaches 200 points, the battle is over and one of you
+  will lie dead. The winner is determined by the list shown below. Push the button when you are ready
+  to begin the battle and ... Good luck!</span></td></tr>
+<tr><td width = 20%><p><img src="images/wizard.jpg" width="120" height="168"></p>
+  <p> <span class="style1">Wizard</span></p></td>
+<td width=20%><p><img src="images/troll.jpg" width="120" height="168"></p>
+  <p><span class="style1">Troll</span></p></td>
+<td width = 10%>&nbsp;</td>
+<td width="50%"><span class="style1"><p>Weapons</p>
+  <p><img src="images/rock.jpg" width="100" height="70" />Magic Rocks</p>
+  <p><img src="images/sword.jpg" width="100" height="70" />Sword</p>
+  <p><img src="images/arrow.jpg" width="100" height="70" />Crossbow + Arrow</span></p>
+  </td></tr>
+  <tr><td colspan = 4><span class="style1">Note: <br />
+  The rocks can deflect the arrow. <br />
+  The sword beats the rocks. <br />
+  The arrow beats the sword.</span></td></tr>
+</table>
+
+ </div>
+
+
+ 
+
+<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright teal">Copyright &copy; Jay Rosen 2015</span>
+                </div>
+               
+                
+            </div>
+        </div>
+    </footer>
+
+
+  <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../js/jqBootstrapValidation.js"></script>
+    <script src="../js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/agency.js"></script>
+
+</body>
+
+</html>
+
+
+  
